@@ -98,9 +98,6 @@
   * @param isPendingBlobReadResult {Boolean} true if the data is the pending blob read operation result
   */
  FileWriter.prototype.write = function (data, isPendingBlobReadResult) {
-
-     console.log("CHUNK TEST");
-
      var me = this;
      var supportsBinary = (typeof window.Blob !== 'undefined' && typeof window.ArrayBuffer !== 'undefined');
      /* eslint-disable no-undef */
@@ -154,7 +151,6 @@
 
  function writeBase64EncodedStringInChunks(successCallback, errorCallback, arrayBuffer) {
      var me = this;
-     console.log(me);
      var chunkSizeBytes = 1024 * 1024; // 1MiB chunks
      var startOfChunk = 0;
      var sizeOfChunk = 0;
@@ -180,7 +176,6 @@
      }
 
      function wroteChunk(bytesWritten) {
-         console.log("WroteChunk", bytesWritten);
          // we need to keep track of the current position, so we do not override the same position over and over again.
          onBytesWritten.call(me, bytesWritten);
          goToNextChunk();
