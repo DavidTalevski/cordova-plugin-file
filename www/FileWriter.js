@@ -126,7 +126,7 @@
      notifyOnWriteStartCallback.call(me);
 
      // do not use `isBinary` here, as the data might have been changed for windowsphone environment.
-     if (supportsBinary && (data instanceof ArrayBuffer)) {
+     if (supportsBinary && (data instanceof ArrayBuffer) && cordova.platformId == "android") {
          writeBase64EncodedStringInChunks.call(
              me,
              function (bytesWritten) {
